@@ -60,7 +60,9 @@ app.delete('/lions/:id', function (req, res) {
         return;
     }
 
-    lions.splice(lions.findIndex(lion = req.params.id));
+    lions.splice(lions.indexOf(lion), 1);
+    res.statusCode = 204;
+    res.json();
 });
 
 function resourceNotFound (response) {
